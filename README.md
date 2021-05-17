@@ -12,3 +12,11 @@ https://mariadb.org/download/
 https://code.visualstudio.com/
 
 
+https://downloads.mysql.com/docs/sakila-db.zip
+
+
+https://sourceforge.net/projects/hibernate/files/hibernate-orm/5.4.31.Final/hibernate-release-5.4.31.Final.zip/download
+
+
+https://es.osdn.net/frs/g_redir.php?m=liquid&f=id2d%2Fjdbc+drivers%2Fmysql-connector-java-5.1.15-bin.jar
+
