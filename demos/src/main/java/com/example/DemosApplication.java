@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.infraestructure.repositories.ActorRepository;
 import com.example.ioc.ComponenteImpl;
 import com.example.ioc.Grafico;
 import com.example.ioc.Servicio;
@@ -18,7 +19,14 @@ public class DemosApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(DemosApplication.class, args);
 	}
-
+	
+	@Autowired
+	ActorRepository dao;
+	
+	public void run(String... args) throws Exception {
+		dao.findAll().forEach(item -> System.out.println(item));
+	}
+/*
 //	@Autowired
 //	ComponenteImpl comp;
 	
@@ -45,5 +53,5 @@ public class DemosApplication implements CommandLineRunner {
 		}
 		
 	}
-
+*/
 }
