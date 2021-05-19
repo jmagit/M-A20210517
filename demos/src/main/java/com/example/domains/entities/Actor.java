@@ -38,11 +38,19 @@ public class Actor implements Serializable {
 	private Timestamp lastUpdate;
 
 	//bi-directional many-to-one association to FilmActor
-	@OneToMany(mappedBy="actor")
+	@OneToMany(mappedBy="actor", fetch = FetchType.EAGER)
 	private List<FilmActor> filmActors;
 
 	public Actor() {
 	}
+	
+
+	public Actor(int actorId, String firstName, String lastName) {
+		this.actorId = actorId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
 
 	public int getActorId() {
 		return this.actorId;

@@ -21,6 +21,11 @@ public class Film implements Serializable {
 	@Column(name="film_id")
 	private int filmId;
 
+	@Override
+	public String toString() {
+		return "Film [filmId=" + filmId + ", title=" + title + "]";
+	}
+
 	@Lob
 	private String description;
 
