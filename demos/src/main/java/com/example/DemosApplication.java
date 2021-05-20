@@ -12,11 +12,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.example.domains.entities.Actor;
 import com.example.domains.entities.dtos.ActorEditDTO;
 import com.example.domains.entities.dtos.ActorShortDTO;
+import com.example.domains.services.ActorDomainService;
+import com.example.domains.services.ActorDomainServiceImpl;
 import com.example.infraestructure.repositories.ActorRepository;
 import com.example.ioc.ComponenteImpl;
 import com.example.ioc.Grafico;
 import com.example.ioc.Servicio;
 import com.example.ioc.ServicioImpl;
+
 
 @SpringBootApplication
 public class DemosApplication implements CommandLineRunner {
@@ -28,13 +31,22 @@ public class DemosApplication implements CommandLineRunner {
 	@Autowired
 	ActorRepository dao;
 	
+	@Autowired
+	ActorDomainService srv;
+	
 	@Transactional
 	public void run(String... args) throws Exception {
 //		var actor = dao.findById(1);
 //		if(actor.isPresent()) {
 //			actor.get().setFirstName(actor.get().getFirstName().toUpperCase());
 //			dao.save(actor.get());
-//			dao.save(new Actor(0, "Pepito", "Grillo"));
+			var nuevo = new Actor(0, "", " ");
+			srv.modify(nuevo);
+//			if(nuevo.isValid())
+//				dao.save(nuevo);
+//			else {
+//				System.out.println(nuevo.getErroString());
+//			}
 //		} else {
 //			System.out.println("no encontrado");
 //		}
@@ -56,7 +68,8 @@ public class DemosApplication implements CommandLineRunner {
 //		miTransaccion();
 //		dao.findAll().forEach(item -> System.out.println(item));
 //		dao.findByActorIdIsNotNull(ActorEditDTO.class).forEach(item -> System.out.println(item));
-		dao.findAll().forEach(item -> System.out.println(ActorEditDTO.from(item)));
+//		dao.findAll().forEach(item -> System.out.println(item));
+//		dao.findAll().forEach(item -> System.out.println(ActorEditDTO.from(item)));
 //		dao.findByActorIdIsNotNull(ActorShortDTO.class).forEach(item -> System.out.println(item.getNombre()));
 
 	}

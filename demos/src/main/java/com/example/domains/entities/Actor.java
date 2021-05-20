@@ -4,10 +4,16 @@ import java.io.Serializable;
 
 import javax.annotation.Generated;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.GenerationTime;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.example.domains.core.EntityBase;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -21,7 +27,7 @@ import java.util.List;
  */
 @Entity
 @NamedQuery(name="Actor.findAll", query="SELECT a FROM Actor a")
-public class Actor implements Serializable {
+public class Actor extends EntityBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -29,16 +35,22 @@ public class Actor implements Serializable {
 	@Column(name="actor_id")
 	private int actorId;
 
-	@Column(name="first_name")
+	@Column(name="first_name", nullable = false)
+	@NotBlank
+	@Size(min = 2, max=45)
 	private String firstName;
 
 	@Column(name="last_name")
+	@NotBlank
+	@Size(max=45)
+	@Pattern(regexp = "[A-Z]*")
 	private String lastName;
 
 	@Column(name="last_update")
 	//@Generated( value = GenerationTime.ALWAYS )
 	@UpdateTimestamp
 	@JsonIgnore
+	@PastOrPresent
 	private Timestamp lastUpdate;
 
 	//bi-directional many-to-one association to FilmActor
@@ -49,6 +61,9 @@ public class Actor implements Serializable {
 	public Actor() {
 	}
 	
+	public Actor(int actorId) {
+		this.actorId = actorId;
+	}
 
 	public Actor(int actorId, String firstName, String lastName) {
 		this.actorId = actorId;
