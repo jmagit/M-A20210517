@@ -17,4 +17,6 @@ public interface ActorRepository extends JpaRepository<Actor, Integer> {
 	
 	@Query("FROM Actor a WHERE a.actorId < ?1")
 	List<Actor> laMia(int fin);
+	
+	<T> List<T> findByActorIdIsNotNull(Class<T> type);
 }

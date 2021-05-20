@@ -10,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.domains.entities.Actor;
+import com.example.domains.entities.dtos.ActorEditDTO;
+import com.example.domains.entities.dtos.ActorShortDTO;
 import com.example.infraestructure.repositories.ActorRepository;
 import com.example.ioc.ComponenteImpl;
 import com.example.ioc.Grafico;
@@ -48,10 +50,15 @@ public class DemosApplication implements CommandLineRunner {
 //			System.out.println("no encontrado");
 //		}
 		// dao.laMia(5).forEach(item -> System.out.println(item));
-		var actor = dao.findById(1);
-		actor.get().getFilmActors().forEach(item -> System.out.println(item.getFilm()));
+//		var actor = dao.findById(1);
+//		actor.get().getFilmActors().forEach(item -> System.out.println(item.getFilm()));
+//		 System.out.println(ActorEditDTO.from(actor.get()));
 //		miTransaccion();
 //		dao.findAll().forEach(item -> System.out.println(item));
+//		dao.findByActorIdIsNotNull(ActorEditDTO.class).forEach(item -> System.out.println(item));
+		dao.findAll().forEach(item -> System.out.println(ActorEditDTO.from(item)));
+//		dao.findByActorIdIsNotNull(ActorShortDTO.class).forEach(item -> System.out.println(item.getNombre()));
+
 	}
 	
 	@Transactional
