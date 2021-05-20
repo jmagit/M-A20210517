@@ -8,6 +8,9 @@ import javax.persistence.*;
 import org.hibernate.annotations.GenerationTime;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -35,10 +38,12 @@ public class Actor implements Serializable {
 	@Column(name="last_update")
 	//@Generated( value = GenerationTime.ALWAYS )
 	@UpdateTimestamp
+	@JsonIgnore
 	private Timestamp lastUpdate;
 
 	//bi-directional many-to-one association to FilmActor
 	@OneToMany(mappedBy="actor", fetch = FetchType.EAGER)
+	@JsonBackReference
 	private List<FilmActor> filmActors;
 
 	public Actor() {
