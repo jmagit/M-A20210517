@@ -44,7 +44,7 @@ public class ActorDomainServiceImpl implements ActorDomainService {
 	@Override
 	public Actor add(Actor item) throws DuplicateKeyException, InvalidDataException {
 		if(item == null || item.isNotValid())
-			throw new InvalidDataException();
+			throw new InvalidDataException(item.getErroString());
 		if(dao.findById(item.getActorId()).isPresent())
 			throw new DuplicateKeyException();
 		return dao.save(item);
