@@ -1,0 +1,49 @@
+get http://localhost:8001/saluda
+Accept: application/json
+
+###
+
+post http://localhost:8001/saluda
+Content-Type: application/json
+
+{
+  "tipo": null,
+  "msg": "toledo"
+}
+
+###
+
+get http://localhost:8001/api/actores
+Accept: application/json
+
+###
+get http://localhost:8001/api/actores/1
+Accept: application/json
+
+###
+post http://localhost:8001/api/actores
+Content-Type: application/json
+
+{
+  "actorId": 0,
+  "firstName": "pepito",
+  "lastName": "GRILLO"
+}
+
+###
+get http://localhost:8001/api/actores/240
+Accept: application/json
+
+###
+put http://localhost:8001/api/actores/240
+Content-Type: application/json
+
+{
+  "actorId": 240,
+  "firstName": "PEPITO",
+  "lastName": "GRILLO"
+}
+
+
+###
+delete http://localhost:8001/api/actores/240
