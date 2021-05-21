@@ -14,6 +14,7 @@ import org.hibernate.annotations.GenerationTime;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.example.domains.core.EntityBase;
+import com.example.domains.core.validations.NIF;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -38,6 +39,7 @@ public class Actor extends EntityBase implements Serializable {
 	@Column(name="first_name", nullable = false)
 	@NotBlank
 	@Size(min = 2, max=45)
+	@NIF
 	private String firstName;
 
 	@Column(name="last_name")

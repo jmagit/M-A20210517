@@ -40,8 +40,14 @@ public class DemosApplication implements CommandLineRunner {
 //		if(actor.isPresent()) {
 //			actor.get().setFirstName(actor.get().getFirstName().toUpperCase());
 //			dao.save(actor.get());
-			var nuevo = new Actor(0, "", " ");
-			srv.modify(nuevo);
+			var nuevo = new Actor(0, "12345678Z", " ");
+			if(nuevo.isValid())
+				srv.modify(nuevo);
+				//dao.save(nuevo);
+			else {
+				System.out.println(nuevo.getErroString());
+			}
+//			srv.modify(nuevo);
 //			if(nuevo.isValid())
 //				dao.save(nuevo);
 //			else {
