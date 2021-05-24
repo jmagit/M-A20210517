@@ -4,13 +4,12 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.validation.ConstraintViolation;
 import javax.validation.Valid;
-import javax.validation.Validator;
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.domains.entities.dtos.ActorEditDTO;
+import com.example.domains.entities.dtos.ActorShortDTO;
 import com.example.domains.services.ActorDomainService;
 import com.example.exceptions.core.BadRequestException;
 import com.example.exceptions.core.DuplicateKeyException;
@@ -38,9 +38,21 @@ public class ActorResource {
 	@Autowired
 	private ActorDomainService srv;
 	
-	@GetMapping
+	@GetMapping(params = {"mode=long"})
 	public List<ActorEditDTO> getAll() {
-		return srv.getAll().stream().map(item -> ActorEditDTO.from(item)).collect(Collectors.toList());
+//		return srv.getAll().stream().map(item -> ActorEditDTO.from(item)).collect(Collectors.toList());
+		return srv.getByProjection(ActorEditDTO.class);
+	}
+
+	@GetMapping
+	public Iterable<ActorShortDTO> getAllShort() {
+		return srv.getByProjection(Sort.by("lastName", "firstName"), ActorShortDTO.class);
+	}
+
+	@GetMapping(params = {"page"})
+	public Page<ActorShortDTO> getAll(Pageable pageable) {
+//		return srv.getAll().stream().map(item -> ActorEditDTO.from(item)).collect(Collectors.toList());
+		return srv.getByProjection(pageable, ActorShortDTO.class);
 	}
 
 	@GetMapping(path = "/{id}")

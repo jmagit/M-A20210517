@@ -17,6 +17,16 @@ get http://localhost:8001/api/actores
 Accept: application/json
 
 ###
+
+get http://localhost:8001/api/actores?mode=long
+Accept: application/json
+
+###
+
+get http://localhost:8001/api/actores?page=2&sort=lastName,firstName
+Accept: application/json
+
+###
 get http://localhost:8001/api/actores/1
 Accept: application/json
 

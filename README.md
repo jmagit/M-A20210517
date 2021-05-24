@@ -22,20 +22,17 @@ https://downloads.mysql.com/archives/get/p/3/file/mysql-connector-java-5.1.49.zi
 
 
 ## Horarios
-Formación Microservicios (25 horas)
+### Formación Microservicios (25 horas)
+- Semana del 17/05:	
+	- Lunes 17: de 15h a 19h (4 horas)
+	- Martes 18 a viernes 21: de 15h a 18:30h (14 horas)
+- Semana del 24/05:
+	- Lunes 24 y martes 25: de 15h a 18:30h  (7 horas)
 
-- Semana del 17/05:	Lunes 17: de 15h a 19h (4 horas)
-
-			Martes 18 a viernes 21: de 15h a 18:30h (14 horas)
-
-- Semana del 24/05:     Lunes 24 y martes 25: de 15h a 18:30h  (7 horas)
-
-Formación Angular (30 horas)
-
-- Semana del 24/05:	Miércoles 26 y jueves 27: de 15h a 19h (8 horas)
-
-			Viernes 28: de 15h a 18h(3 horas)
-
-- Semana del 7/06:	Lunes 7 a jueves 10: de 15h a 19h (16 horas)
-
-			Viernes 11: de 15h a 18h(3 horas)
+### Formación Angular (30 horas)
+- Semana del 24/05:	
+	- Miércoles 26 y jueves 27: de 15h a 19h (8 horas)
+	- Viernes 28: de 15h a 18h(3 horas)
+- Semana del 7/06:
+	- Lunes 7 a jueves 10: de 15h a 19h (16 horas)
+	- Viernes 11: de 15h a 18h(3 horas)

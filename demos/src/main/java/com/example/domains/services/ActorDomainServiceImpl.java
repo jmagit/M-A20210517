@@ -8,7 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.example.domains.core.DomainService;
 import com.example.domains.entities.Actor;
 import com.example.exceptions.core.DuplicateKeyException;
 import com.example.exceptions.core.InvalidDataException;
@@ -34,6 +33,21 @@ public class ActorDomainServiceImpl implements ActorDomainService {
 	@Override
 	public Page<Actor> getAll(Pageable pageable) {
 		return dao.findAll(pageable);
+	}
+
+	@Override
+	public <T> List<T> getByProjection(Class<T> type) {
+		return dao.findByActorIdIsNotNull(type);
+	}
+
+	@Override
+	public <T> Iterable<T> getByProjection(Sort sort, Class<T> type) {
+		return dao.findByActorIdIsNotNull(sort, type);
+	}
+
+	@Override
+	public <T> Page<T> getByProjection(Pageable pageable, Class<T> type) {
+		return dao.findByActorIdIsNotNull(pageable, type);
 	}
 
 	@Override
