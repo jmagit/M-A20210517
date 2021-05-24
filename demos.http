@@ -57,3 +57,13 @@ Content-Type: application/json
 
 ###
 delete http://localhost:8001/api/actores/240
+
+###
+
+get http://localhost:8010/peliculas?mode=short
+Accept: application/json
+
+###
+
+get http://localhost:8010/peliculas
+Accept: application/json
