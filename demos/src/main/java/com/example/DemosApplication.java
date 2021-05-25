@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import com.example.domains.entities.Actor;
 import com.example.domains.entities.dtos.ActorEditDTO;
@@ -21,8 +22,12 @@ import com.example.ioc.Grafico;
 import com.example.ioc.Servicio;
 import com.example.ioc.ServicioImpl;
 
+import springfox.documentation.oas.annotations.EnableOpenApi;
+
 
 @EnableEurekaClient
+@EnableOpenApi
+@EnableFeignClients("com.example.application")
 @SpringBootApplication
 public class DemosApplication implements CommandLineRunner {
 
