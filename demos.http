@@ -67,3 +67,33 @@ Accept: application/json
 
 get http://localhost:8010/peliculas
 Accept: application/json
+
+###
+
+get http://localhost:8001/autoapi
+Accept: application/json
+
+###
+
+get http://localhost:8001/autoapi/categories/1
+Accept: application/json
+###
+
+get http://localhost:8001/autoapi/idiomas
+Accept: application/json
+
+###
+
+get http://localhost:8001/cliente/raiz
+Accept: application/json
+
+###
+
+get http://localhost:8001/cliente/pelis
+Accept: application/json
+
+###
+
+get http://localhost:8001/cliente/pelis/1
+Accept: application/json
+
