@@ -97,3 +97,16 @@ Accept: application/json
 get http://localhost:8001/cliente/pelis/1
 Accept: application/json
 
+###
+
+get http://localhost:8080/catalogo
+Accept: application/json
+
+###
+
+get http://localhost:8080/demos/api/actores
+Accept: application/json
+
+###
+
+get http://localhost:8080/buscar
