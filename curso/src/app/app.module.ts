@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { MyCoreModule } from 'src/my-core';
+import { LoggerService, MyCoreModule } from 'src/my-core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,9 @@ import { MainModule } from './main';
     MainModule, CommonServicesModule, MyCoreModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    LoggerService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
