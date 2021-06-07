@@ -13,11 +13,11 @@ export class DemosComponent implements OnInit, OnDestroy {
   constructor(public vm: NotificationService) { }
 
   ngOnInit(): void {
-    // this.suscriptor = this.vm.Notificacion.subscribe(n => {
-    //   if (n.Type !== NotificationType.error) { return; }
-    //   window.alert(`Suscripcion: ${n.Message}`);
-    //   this.vm.remove(this.vm.Listado.length - 1);
-    // });
+    this.suscriptor = this.vm.Notificacion.subscribe(n => {
+      if (n.Type !== NotificationType.error) { return; }
+      window.alert(`Suscripcion: ${n.Message}`);
+      this.vm.remove(this.vm.Listado.length - 1);
+    });
   }
   ngOnDestroy(): void {
     if (this.suscriptor) {
