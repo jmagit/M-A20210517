@@ -11,7 +11,6 @@ import { Component } from '@angular/core';
   // ],
 })
 export class AppComponent {
-  title = 'hola toledo';
 
   // constructor(out: LoggerService) {
   //   out.error('Es un error');
