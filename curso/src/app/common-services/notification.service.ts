@@ -15,14 +15,14 @@ export class Notification {
   providedIn: 'root'
 })
 export class NotificationService {
-  private listado: Array<Notification> = [];
   public readonly NotificationType = NotificationType;
+  private listado: Array<Notification> = [];
   private notificacion$ = new Subject<Notification>();
 
   constructor(private out: LoggerService) { }
 
-  public get Listado(): Array<Notification> { return Object.assign([], this.listado); }
   public get HayNotificaciones(): boolean { return this.listado.length > 0; }
+  public get Listado(): Array<Notification> { return Object.assign([], this.listado); }
   public get Notificacion(): Subject<Notification> { return this.notificacion$; }
 
   public add(msg: string, type: NotificationType = NotificationType.error): void {
