@@ -1,7 +1,29 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Unsubscribable } from 'rxjs';
 import { NotificationService, NotificationType } from '../common-services';
 
+@Component({
+  selector: 'app-botones',
+  template: `
+  <div>
+    <input type="button" *ngIf="hasOK" [value]="OK" (click)="onOK.emit(null)" >
+    <input type="button" *ngIf="hasCancel" [value]="Cancel" (click)="onCancel.emit(null)" >
+  </div>
+  `
+})
+export class BotonesComponent implements OnInit {
+  @Input() OK = 'Aceptar';
+  @Input() Cancel = 'Cancelar';
+  @Output() onOK = new EventEmitter<any>();
+  @Output() onCancel = new EventEmitter<any>();
+
+  get hasOK() { return this.onOK.observers.length > 0; }
+  get hasCancel() { return this.onCancel.observers.length > 0; }
+
+  constructor() { }
+
+  ngOnInit() { }
+}
 @Component({
   selector: 'app-demos',
   templateUrl: './demos.component.html',

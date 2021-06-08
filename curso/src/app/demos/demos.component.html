@@ -1,4 +1,4 @@
-<h1>Hola {{Nombre}}</h1>
+<h1>Hola {{Nombre | elipsis:10 | uppercase }}</h1>
 <p>
   <input type="text" [(ngModel)]="Nombre" >
   <input type="button" value="saluda" (click)="saluda()" >
@@ -18,12 +18,12 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum tempora, reprehen
 </p>
 <p [class.semiinvisible]="!visible">Ahora me ves</p>
 <p>
-  Calcula: 2 + 2 = {{ 2 + 2 }} = {{ calculo(2, 2) }}
+  Calcula: 2 + 2 = {{ (2 + 2) | number:'3.2-4' }} = {{ calculo(2, 2) | currency:'EUR':'symbol':'1.2-2' }}
 </p>
 <ul>
-  <li *ngFor="let p of listado; let ind=index; let fondo=odd;"
+  <li *ngFor="let p of listado | slice:-5; let ind=index; let fondo=odd;"
     [style.background-color]="fondo ? 'LightBlue' : 'Lavender'">
-    {{p.nombre}} ({{p.id}}) [Elemento {{ind + 1}} de {{listado.length}}]
+    {{p.nombre | titlecase }} ({{p.id}}) [Elemento {{ind + 1}} de {{listado.length}}]
   </li>
 </ul>
 <p>
@@ -35,3 +35,9 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum tempora, reprehen
   <input type="text" value="Tabarnia" #txtProvincia >
   <input type="button" value="add" (click)="add(txtProvincia.value)" >
 </p>
+<my-sizer (sizeChange)="fontsize = $event" ></my-sizer>
+<p [style.font-size.px]="fontsize">
+  {{ listado | json }}
+</p>
+
+<app-botones [OK]="'Enviar'" (onOK)="add('OK')" [Cancel]="'Volver'" (onCancel)="add('cancela')"></app-botones>
