@@ -9,11 +9,12 @@ import { AppComponent } from './app.component';
 import { CommonServicesModule } from './common-services';
 import { MainModule } from './main';
 import { BotonesComponent, DemosComponent } from './demos/demos.component';
+import { DinamicoComponent } from './dinamico/dinamico.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemosComponent, BotonesComponent,
+    DemosComponent, BotonesComponent, DinamicoComponent,
   ],
   imports: [
     BrowserModule, FormsModule,
