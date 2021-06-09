@@ -20,14 +20,16 @@ import { MainModule } from './main';
 import { BotonesComponent, DemosComponent } from './demos/demos.component';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
+import { FormularioComponent } from './formulario/formulario.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemosComponent, BotonesComponent, DinamicoComponent, CalculadoraComponent,
+    DemosComponent, BotonesComponent, DinamicoComponent, CalculadoraComponent, FormularioComponent,
   ],
   imports: [
-    BrowserModule, FormsModule,
+    BrowserModule, FormsModule, HttpClientModule,
     MainModule, CommonServicesModule, MyCoreModule,
     AppRoutingModule
   ],
