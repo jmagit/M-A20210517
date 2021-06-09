@@ -1,9 +1,14 @@
 <form #miForm="ngForm">
   <p>
     Código:
-    <input type="number" name="id" id="id" [(ngModel)]="elemento.id" #id="ngModel"
-      required>
-    <span class="error" [hidden]="!id.hasError('required') || miForm.pristine">Es obligatorio</span>
+    <ng-container *ngIf="modo==='add'">
+      <input type="number" name="id" id="id" [(ngModel)]="elemento.id" #id="ngModel"
+        required>
+      <span class="error" [hidden]="!id.hasError('required') || miForm.pristine">Es obligatorio</span>
+    </ng-container>
+    <ng-container *ngIf="modo!=='add'">
+      {{elemento.id}}
+    </ng-container>
     <br>
     Nombre:
     <input type="email" name="nombre" id="nombre" [(ngModel)]="elemento.nombre" #nombre="ngModel"
@@ -36,3 +41,6 @@
   <input type="button" value="Añadir" (click)="add()">
   <input type="button" value="Editar" (click)="edit()">
 </p>
+<ul>
+  <li *ngFor="let item of listado">{{item.nombre}} {{item.apellidos}}</li>
+</ul>
