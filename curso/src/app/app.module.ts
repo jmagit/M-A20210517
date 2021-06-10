@@ -24,6 +24,7 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AjaxWaitInterceptor } from './main/ajax-wait';
 import { AuthInterceptor, SecurityModule } from './security';
+import { ContactosModule } from './contactos';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { AuthInterceptor, SecurityModule } from './security';
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     MainModule, CommonServicesModule, MyCoreModule,
-    SecurityModule,
+    SecurityModule, ContactosModule,
     AppRoutingModule
   ],
   providers: [

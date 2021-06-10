@@ -40,6 +40,8 @@
 <p>
   <input type="button" value="Añadir" (click)="add()">
   <input type="button" value="Editar" (click)="edit()">
+  <input type="button" value="Listar" (click)="list()">
+  <input type="number" [(ngModel)]="page" min="0" max="maxPage" (ngModelChange)="list()">
 </p>
 <ul>
   <li *ngFor="let item of listado">{{item.nombre}} {{item.apellidos}}</li>
