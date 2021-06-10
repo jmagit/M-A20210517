@@ -10,7 +10,7 @@ export const AUTH_REQUIRED = new HttpContextToken<boolean>(() => false);
 })
 export class ActoresDAOService extends RESTDAOService<any, number> {
   constructor(http: HttpClient) {
-    super(http, 'personas', { context: new HttpContext().set(AUTH_REQUIRED, true) })
+    super(http, 'actores', { context: new HttpContext().set(AUTH_REQUIRED, true) })
   }
 }
 @Component({

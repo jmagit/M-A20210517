@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { NotificationComponent } from './notification/notification.component';
 import { HomeComponent } from './home/home.component';
 import { AjaxWaitComponent } from './ajax-wait';
+import { SecurityModule } from '../security';
+import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -11,14 +14,16 @@ import { AjaxWaitComponent } from './ajax-wait';
     NotificationComponent,
     HomeComponent,
     AjaxWaitComponent,
+    HeaderComponent,
   ],
   exports: [
     NotificationComponent,
     HomeComponent,
     AjaxWaitComponent,
+    HeaderComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule, SecurityModule, RouterModule.forChild([]),
   ]
 })
 export class MainModule {

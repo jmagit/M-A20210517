@@ -40,16 +40,13 @@ public class WebConfig implements WebMvcConfigurer {
 		return builder.build();
 	}
 	
-//	@Bean
-//	public Jsonsche
-	
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-            .allowedOrigins("http://localhost:4200/")
+            .allowedOrigins("*")
             .allowedMethods("GET", "POST", "PUT", "DELETE")
             .allowedHeaders("origin", "content-type", "accept", "authorization")
-            .allowCredentials(true).maxAge(3600);
+            .maxAge(3600);
     }
 
 }
