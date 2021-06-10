@@ -23,7 +23,7 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AjaxWaitInterceptor } from './main/ajax-wait';
-import { SecurityModule } from './security';
+import { AuthInterceptor, SecurityModule } from './security';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import { SecurityModule } from './security';
     { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL },
     { provide: LOCALE_ID, useValue: 'es-ES' },
     { provide: HTTP_INTERCEPTORS, useClass: AjaxWaitInterceptor, multi: true, },
-],
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

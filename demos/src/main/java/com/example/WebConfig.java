@@ -40,13 +40,13 @@ public class WebConfig implements WebMvcConfigurer {
 		return builder.build();
 	}
 	
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-            .allowedOrigins("*")
-            .allowedMethods("GET", "POST", "PUT", "DELETE")
-            .allowedHeaders("origin", "content-type", "accept", "authorization")
-            .maxAge(3600);
-    }
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/**")
+//            .allowedOrigins("*")
+//            .allowedMethods("GET", "POST", "PUT", "DELETE")
+//            .allowedHeaders("origin", "content-type", "accept", "authorization")
+//            .maxAge(3600);
+//    }
 
 }

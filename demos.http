@@ -110,3 +110,36 @@ Accept: application/json
 ###
 
 get http://localhost:8080/buscar
+
+###
+
+get http://localhost:8001/config
+
+###
+
+get http://localhost:8091/seguro
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJNaWNyb3NlcnZpY2lvc0pXVCIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9BRE1JTiJdLCJpYXQiOjE2MjMzMzUyMDEsImV4cCI6MTYyMzMzNTgwMX0.OiE7OJiP5zHQknU563KKz0J81Z6d4FfaYWSbp7lxBwUD3v76uE7aEN3MmZ3jjEBZltxB6taJ_wz1j4J1dmzG9A
+
+###
+
+get http://localhost:8091/admin
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJNaWNyb3NlcnZpY2lvc0pXVCIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9BRE1JTiJdLCJpYXQiOjE2MjMzMzUyMDEsImV4cCI6MTYyMzMzNTgwMX0.OiE7OJiP5zHQknU563KKz0J81Z6d4FfaYWSbp7lxBwUD3v76uE7aEN3MmZ3jjEBZltxB6taJ_wz1j4J1dmzG9A
+
+###
+
+post http://localhost:8091/login?name=kk&password=kk
+
+###
+
+post http://localhost:8091/login
+Content-Type: application/json
+
+{
+  "name": "admin",
+  "password": "kk"
+}
+
+###
+
+get http://localhost:8001/api/actores
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJNaWNyb3NlcnZpY2lvc0pXVCIsInN1YiI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9BRE1JTiJdLCJpYXQiOjE2MjMzMzUyMDEsImV4cCI6MTYyMzMzNTgwMX0.OiE7OJiP5zHQknU563KKz0J81Z6d4FfaYWSbp7lxBwUD3v76uE7aEN3MmZ3jjEBZltxB6taJ_wz1j4J1dmzG9A

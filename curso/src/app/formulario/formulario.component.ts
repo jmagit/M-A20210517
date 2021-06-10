@@ -2,8 +2,7 @@ import { HttpClient, HttpContext, HttpContextToken } from '@angular/common/http'
 import { Component, Injectable, OnInit } from '@angular/core';
 import { RESTDAOService } from '../base-code/RESTDAOService';
 import { NotificationService } from '../common-services';
-
-export const AUTH_REQUIRED = new HttpContextToken<boolean>(() => false);
+import { AUTH_REQUIRED } from '../security';
 
 @Injectable({
   providedIn: 'root'

@@ -102,5 +102,13 @@ public class Demos {
 	public Pelis clientePelis(@PathVariable int id) { 
 	    return proxy.getPeli(id);
 	}
+
+	@org.springframework.beans.factory.annotation.Value("${jwt.secret}")
+	String secreto;
 	
+	@GetMapping("/config")
+	public String config() { 
+	    return secreto;
+	}
+
 }
