@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BotonesCRUDComponent } from './botones-crud.component';
+import { PaginationBarComponent } from './pagination-bar.component';
 
 
 
 @NgModule({
   declarations: [
-    BotonesCRUDComponent,
+    BotonesCRUDComponent, PaginationBarComponent,
   ],
   exports:[
-    BotonesCRUDComponent,
+    BotonesCRUDComponent, PaginationBarComponent,
   ],
   imports: [
     CommonModule

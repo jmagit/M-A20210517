@@ -12,8 +12,8 @@ export class ActoresDAOService extends RESTDAOService<any, number> {
   constructor(http: HttpClient) {
     super(http, 'actores', { context: new HttpContext().set(AUTH_REQUIRED, true) })
   }
-  paginado(page: number = 0): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}?page=${page}&rows=10`, this.option);
+  paginado(page: number = 0, rows = 20): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}?page=${page}&size=${rows}`, this.option);
   }
 }
 @Component({
@@ -52,14 +52,16 @@ export class FormularioComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   page = 0;
-  maxPage = 0;
-  list() {
-    this.dao.paginado(this.page).subscribe(
+  totalPages = 0;
+
+  list(page: number) {
+    this.dao.paginado(page).subscribe(
       data => {
         this.listado = data.content;
         this.page = data.number;
-        this.maxPage = data.totalPages;
+        this.totalPages = data.totalPages;
       },
       err => this.notify.add(err.message)
     );

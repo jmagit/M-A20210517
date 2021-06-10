@@ -25,6 +25,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AjaxWaitInterceptor } from './main/ajax-wait';
 import { AuthInterceptor, SecurityModule } from './security';
 import { ContactosModule } from './contactos';
+import { CommonComponentModule } from './common-component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { ContactosModule } from './contactos';
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     MainModule, CommonServicesModule, MyCoreModule,
-    SecurityModule, ContactosModule,
+    SecurityModule, ContactosModule, CommonComponentModule,
     AppRoutingModule
   ],
   providers: [

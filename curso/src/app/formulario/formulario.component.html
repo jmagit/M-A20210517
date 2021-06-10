@@ -40,9 +40,9 @@
 <p>
   <input type="button" value="Añadir" (click)="add()">
   <input type="button" value="Editar" (click)="edit()">
-  <input type="button" value="Listar" (click)="list()">
-  <input type="number" [(ngModel)]="page" min="0" max="maxPage" (ngModelChange)="list()">
+  <input type="button" value="Listar" (click)="list(0)">
 </p>
 <ul>
   <li *ngFor="let item of listado">{{item.nombre}} {{item.apellidos}}</li>
 </ul>
+<app-pagination-bar [page]="page" [totalpages]="totalPages" (select)="list($event)"></app-pagination-bar>
