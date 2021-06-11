@@ -7,7 +7,7 @@ import { ModoCRUD } from '../base-code/tipos';
 import { NotificationService } from '../common-services';
 import { AUTH_REQUIRED } from '../security';
 
-export class Contactos {
+export class Actores {
   id: number = 0;
   tratamiento: string | null = null;
   nombre: string | null = null;
@@ -23,25 +23,25 @@ export class Contactos {
 @Injectable({
   providedIn: 'root'
 })
-export class ContactosDAOService extends RESTDAOService<any, any> {
+export class ActoresDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
-    super(http, 'contactos', { /*context: new HttpContext().set(AUTH_REQUIRED, true)*/ });
+    super(http, 'actores', { context: new HttpContext().set(AUTH_REQUIRED, true) });
   }
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class ContactosViewModelService {
+export class ActoresViewModelService {
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
   protected elemento: any = {};
   protected idOriginal: any = null;
-  protected listURL = '/contactos';
+  protected listURL = '/actores';
 
   constructor(protected notify: NotificationService,
     protected out: LoggerService,
-    protected dao: ContactosDAOService, protected router: Router) { }
+    protected dao: ActoresDAOService, protected router: Router) { }
 
   public get Modo(): ModoCRUD { return this.modo; }
   public get Listado(): Array<any> { return this.listado; }
@@ -92,8 +92,8 @@ export class ContactosViewModelService {
   public cancel(): void {
     this.elemento = {};
     this.idOriginal = null;
-    // this.list();
-    this.router.navigateByUrl(this.listURL);
+    this.list();
+    // this.router.navigateByUrl(this.listURL);
   }
 
   public send(): void {

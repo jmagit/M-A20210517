@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="assets/logo.png" alt="Logotipo" width="80"></a>
+    <a class="navbar-brand" [routerLink]="['']"><img src="assets/logo.png" alt="Logotipo" width="80"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,9 +11,26 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/inicio']" routerLinkActive="active">inicio</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/demos']" routerLinkActive="active">demos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/chisme/de/hacer/numeros']" routerLinkActive="active">calculadora</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/contactos']" routerLinkActive="active">contactos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/actores']" routerLinkActive="active">actores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/umberto/langforth']" routerLinkActive="active">umberto</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/falsa']" routerLinkActive="active">falsa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/inicio" routerLinkActive="active">lenta</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/config']" routerLinkActive="active">config</a>
@@ -22,6 +39,7 @@
           <a class="nav-link" [routerLink]="['/config/datos']" routerLinkActive="active">datos</a>
         </li>
       </ul>
+      <button (click)="nav.back()">Atras</button>
       <div class="d-flex">
         <app-login></app-login>
         <button (click)="nav.back()">Atras</button>
